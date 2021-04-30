@@ -5,10 +5,21 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   components: {
+  },
+  data(){
+    return {
+      msg: ""
+    }
+  },
+  mounted(){
+    var user = this.$cookies.get('user')
+    if(user){
+      user.times++
+      this.$cookies.set('user', user)
+    }
   }
 }
 </script>
@@ -19,7 +30,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
